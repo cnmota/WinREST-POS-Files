@@ -7,14 +7,17 @@ Usage:
 
 READ
 
+```perl
 my $headers = POS::File::Flat->new( filename => '/home/winrest/files/export/c1301010.020', formatter => 'POS::WinREST::Formatter::SaleHeader' );
 
 foreach my $row (@{$headers->rows()}) {
   print "DOC TYPE:".$row->{doc_type}." VALUE: ".$row->{total}."\n";
 }
+```
 
 WRITE
 
+```perl
 my $rows = [
   { 
     code => 12,
@@ -27,4 +30,6 @@ my $rows = [
 
 my $writer = POS::File::Flat->new( rows => $rows, formatter => 'POS::WinREST::Formatter::Product' );
 $writer->save('/home/winrest/files/data/wrstmart.000');
+
+```
 
